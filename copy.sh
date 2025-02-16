@@ -20,7 +20,7 @@ backup_file() {
 
 # Backup existing files before copying new ones
 backup_file "$PLUGINS_DIR/user_plugins.lua"
-backup_file "$CONFIG_DIR/disable.lua"
+backup_file "$PLUGINS_DIR/disable.lua"
 backup_file "$CONFIG_DIR/options.lua"
 backup_file "$CONFIG_DIR/autocmds.lua"
 backup_file "$TARGET_DIR/lazyvim.json"
@@ -28,7 +28,7 @@ backup_file "$TARGET_DIR/lazyvim.json"
 # Copy the new files to the target directory
 echo "Copying files..."
 cp "$SOURCE_DIR/user_plugins.lua" "$PLUGINS_DIR/"
-cp "$SOURCE_DIR/disable.lua" "$CONFIG_DIR/"
+cp "$SOURCE_DIR/disable.lua" "$PLUGINS_DIR/"
 cp "$SOURCE_DIR/options.lua" "$CONFIG_DIR/"
 cp "$SOURCE_DIR/autocmds.lua" "$CONFIG_DIR/"
 cp "$SOURCE_DIR/lazyvim.json" "$TARGET_DIR/"
