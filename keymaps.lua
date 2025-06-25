@@ -19,7 +19,7 @@ vim.api.nvim_set_keymap('v', '<leader>ud', ":'<,'>!python3 -c 'import urllib.par
 
 
 vim.keymap.set('n', 'date', function()
-  local date = os.date('%Y-%m-%d')  -- Customize format if needed
+  local date = os.date('%Y-%m-%d %H:%M:%S')  -- Customize format if needed
   vim.api.nvim_put({date}, 'c', true, true)
 end, { desc = 'Insert current date' })
 
