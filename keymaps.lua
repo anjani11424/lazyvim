@@ -16,3 +16,13 @@ vim.api.nvim_set_keymap('v', '<leader>ue', ":'<,'>!jq -sRr @uri<CR>", { noremap 
 
 -- URL Decoding using Python's urllib.parse.unquote on the selected text
 vim.api.nvim_set_keymap('v', '<leader>ud', ":'<,'>!python3 -c 'import urllib.parse, sys; print(urllib.parse.unquote(sys.stdin.read().strip()))'<CR>", { noremap = true, silent = true })
+
+
+vim.keymap.set('n', 'date', function()
+  local date = os.date('%Y-%m-%d')  -- Customize format if needed
+  vim.api.nvim_put({date}, 'c', true, true)
+end, { desc = 'Insert current date' })
+
+vim.keymap.set('n', 'code', function()
+  vim.api.nvim_put({'```'}, 'l', true, true)
+end, { desc = 'Insert markdown code block delimiter' })
