@@ -44,3 +44,21 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.b.autoformat = false
   end,
 })
+
+
+vim.api.nvim_create_augroup("DiffViewSettings", { clear = true })
+
+vim.api.nvim_create_autocmd({ "OptionSet", "BufWinEnter" }, {
+  group = "DiffViewSettings",
+  pattern = "*",
+  callback = function()
+    if vim.wo.diff then
+      vim.wo.relativenumber = false
+      vim.wo.number = false
+      vim.wo.wrap = true
+      vim.wo.cursorline = true
+      vim.wo.cursorcolumn = false
+      vim.wo.signcolumn = "no"
+    end
+  end,
+})
