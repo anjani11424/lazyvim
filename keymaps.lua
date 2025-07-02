@@ -26,3 +26,9 @@ end, { desc = 'Insert current date' })
 vim.keymap.set('n', 'code', function()
   vim.api.nvim_put({'```'}, 'l', true, true)
 end, { desc = 'Insert markdown code block delimiter' })
+
+vim.keymap.set("n", "code", function()
+  local lines = { "```", "", "```" }
+  vim.api.nvim_put(lines, "l", true, true)
+  vim.cmd("normal! k") -- move cursor to middle line
+end, { desc = "Insert Markdown code block" })
